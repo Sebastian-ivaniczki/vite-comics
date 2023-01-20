@@ -68,6 +68,7 @@ export default {
                 <img src="../assets/img/dc-logo.png" alt="logo dc">
             </div>
             <div class="nav_right">
+               
                 <ul>
                     <li v-for="link in links" :key="link.text">
                         <a :class="{'active' : link.current}" :href="link.url">{{ link.text }}</a>
