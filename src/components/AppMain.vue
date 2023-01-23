@@ -1,4 +1,5 @@
 <script>
+import AppCard from './AppCard.vue';
 export default {
     name: 'AppMain',
     data()
@@ -53,14 +54,24 @@ export default {
  
 ]
     }
- }}
+   
+    
+ },
+ components:{ AppCard },
+ props: {
+        cards: Array,
+    }
+ }
 </script>
 
 <template>
     <div class="content">
         <div class="container">
-
-            <h3>Content goes here</h3>
+            <div class="card-container">
+                <app-card v-for="card in cards" :key="card.series" :card="card"></app-card>
+            </div>
+               
+            
         </div>
     </div>
     <div class="jumbotron">
@@ -127,10 +138,19 @@ export default {
 }
 
 .content {
-    height: 130px;
+    min-height: 130px;
     background-color: #000;
     color: #fff;
 }
+/*cards content */
+.card-container{
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    
+}
+
 
 h3{
    line-height: 130px; 
